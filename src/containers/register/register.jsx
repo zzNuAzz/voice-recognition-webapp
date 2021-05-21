@@ -51,7 +51,7 @@ export default function Register() {
 		return null;
 	}
 	return (
-		<div className="register-page default-background">
+		<div className="register-page default-background no-select">
 			{renderStage_()}
 		</div>
 	);

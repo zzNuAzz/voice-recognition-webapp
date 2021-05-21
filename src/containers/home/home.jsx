@@ -7,9 +7,9 @@ import manageAccountIcon from 'assets/home/manage-account.svg';
 
 export default function Home() {
 	return (
-		<div className="home-page">
-			<div className="web-name no-select">Voice Recognition System</div>
-			<div className="panel no-select">
+		<div className="home-page no-select">
+			<div className="web-name">Voice Recognition System</div>
+			<div className="panel">
 				<div className="panel-btn">
 					<div className="img-wrap">
 						<Link to="/register">
