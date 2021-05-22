@@ -8,14 +8,14 @@
                                     supported by Chrome, Edge, Opera and Firefox */
 }
 
+
+
 .default-background {
 	color: #fff;
 	font-family: Quicksand;
 	font-weight: bold;
 	font-style: normal;
-	overflow: hidden;
-
-	&::after {
+	&::before {
 		content: '';
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
@@ -56,6 +56,10 @@ span.button {
 	cursor: pointer;
 	&:hover {
 		background-color: #085b61;
+	}
+	img {
+		height: 1.7rem;
+		margin-right: 8px;
 	}
 }
 

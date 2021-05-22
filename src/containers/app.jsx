@@ -1,6 +1,6 @@
 import WithHtmlTitleRoute from 'commons/with-html-title-route/WithHtmlTitleRoute';
 import React, { Fragment } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Redirect, Switch } from 'react-router';
 import { ToastContainer } from 'react-toastify';
 import { APP_ROUTES, DEFAULT_APP_ROUTE } from './app-routers';
 

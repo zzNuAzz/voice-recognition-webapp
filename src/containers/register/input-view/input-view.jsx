@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import profileIcon from 'assets/register/profile-icon.svg';
 import { toast } from 'react-toastify';
 
 export default function InputView({ name, setName, submit, stage }) {
 
-    const _onsubmit = async () => {
+    const _onsubmit = () => {
         if(name.length === 0) {
             toast.warning("Name must not be empty.");
         } else {
-            const result = await submit();
-            if(result?.success) {
+            submit().then(result => {
                 stage.next()
-            } else {
-                toast.error(result?.message || "Error unknown");
-            }
+            }).catch(err => {
+                toast.error(err || "Error unknown");
+            })
         }
     }
 	return (
@@ -26,7 +25,7 @@ export default function InputView({ name, setName, submit, stage }) {
 				type="text"
 				placeholder="Click to type your name"
 			/>
-			<span disabled className="button" onClick={_onsubmit}>Type your name</span>
+			<span className="button" onClick={_onsubmit}>Type your name</span>
 		</div>
 	);
 }

@@ -1,6 +1,3 @@
-import React from 'react';
-import { Redirect } from 'react-router-dom';
-
 import Home from 'containers/home/home';
 import Register from './register/register';
 import Verification from './verification/verification';
@@ -11,7 +8,7 @@ export const APP_ROUTES = [
 		path: '/',
 		exact: true,
 		component: Home,
-		htmlTitle: "Home"
+		htmlTitle: "Voice Recognition System"
 	},
     {
 		path: '/register',

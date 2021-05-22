@@ -47,8 +47,9 @@ export default function Register() {
 			return <InputView name={name} setName={setName} submit={_onSubmit} stage={_stage}/>
 		case DONE_STAGE:
 			return <DoneView />
+		default:
+			return null;
 		}
-		return null;
 	}
 	return (
 		<div className="register-page default-background no-select">
