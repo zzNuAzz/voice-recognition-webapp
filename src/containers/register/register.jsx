@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import RecordView from './record-view/record-view';
-import InputView from './input-view/input-view';
-import DoneView from './done-view/done-view';
+import RecordStage from './record-stage/record-stage';
+import InputStage from './input-stage/input-stage';
+import DoneStage from './done-stage/done-stage';
 
 import RegisterApi from 'api/register'
 
@@ -14,7 +14,7 @@ const stageName = [RECORD_STAGE, INPUT_NAME_STAGE, DONE_STAGE];
 export default function Register() {
 	const [name, setName] = useState("")
 	const [record, setRecord] = useState(null);
-	const [stage, setStage] = useState("record");
+	const [stage, setStage] = useState(stageName[0]);
 
 	const _stage = {
 		next: function() {
@@ -42,11 +42,11 @@ export default function Register() {
 	function renderStage_() {
 		switch (stage) {
 		case RECORD_STAGE:
-			return <RecordView record={record} setRecord={setRecord} stage={_stage}/>
+			return <RecordStage record={record} setRecord={setRecord} stage={_stage}/>
 		case INPUT_NAME_STAGE:
-			return <InputView name={name} setName={setName} submit={_onSubmit} stage={_stage}/>
+			return <InputStage name={name} setName={setName} submit={_onSubmit} stage={_stage}/>
 		case DONE_STAGE:
-			return <DoneView />
+			return <DoneStage />
 		default:
 			return null;
 		}

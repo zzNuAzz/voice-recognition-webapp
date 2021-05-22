@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 const RECORD_TIME = 5000; //ms
 
-export default function RecordView({setRecord, stage}) {
+export default function RecordStage({setRecord, stage}) {
 	const [recordState, setRecordState] = useState(null);
 	const timeOut = useRef(null);
 
@@ -17,20 +17,19 @@ export default function RecordView({setRecord, stage}) {
 	}
 	const _recordStart = () => {
 		setRecordState(RecordState.START);
-		toast.info(`Recoding in ${RECORD_TIME / 1000}s left.`)
+		toast.info(`Waiting for record in ${RECORD_TIME / 1000}s.`)
 		timeOut.current = setTimeout(()=>{
 			_recordStop();
 			stage.next();
 		}, RECORD_TIME)
-		
 	}
 	const _onStop = (audioData) => {
 		setRecord(audioData);
 	}
 	return (
 		<Fragment>
-			<div className="record-view">
-				<img className="view-icon" src={recordIcon} alt="record-icon" />
+			<div className="record-stage">
+				<img className="stage-icon" src={recordIcon} alt="record-icon" />
 				<img className="signal-bar" src={signalBar} alt="record-icon" />
 				{recordState !== RecordState.START ? (
 					<span className="button" onClick={_recordStart}>Click to record</span>
